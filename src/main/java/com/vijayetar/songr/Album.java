@@ -1,4 +1,9 @@
 package com.vijayetar.songr;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id; // we choose this IF we are guessing based on the class' import
+
 
 public class Album {
     //An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s ar
@@ -16,7 +21,6 @@ public class Album {
         this.imageUrl = imageUrl;
     }
     public Album(){
-
     }
 
     public String getTitle(){
