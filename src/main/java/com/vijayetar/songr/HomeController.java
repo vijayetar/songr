@@ -12,7 +12,8 @@ public class HomeController {
         return "home";
     }
     @GetMapping("/hello")
-    public String sayHello(){
+    public String sayHello(Model m, String name){
+        m.addAttribute("name", name);
         return "hello";
     }
     @GetMapping("/capitalize/{message}")
