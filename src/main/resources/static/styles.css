@@ -1,7 +1,17 @@
-h1  {
-    font: blue;
-    font-size: 12px;
-}
 body {
-    background-color: pink;
+    background-color: gainsboro;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 3em;
 }
+h1{
+    color: blue;
+    padding: 0.5em;
+    font-size: 3em;
+}
+p{
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.5em;
+    padding: 0.5em;
+}
+
