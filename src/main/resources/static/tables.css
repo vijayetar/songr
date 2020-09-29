@@ -1,0 +1,14 @@
+table {
+    width:70%;
+}
+th, td{
+    padding:2%, 5%, 5%, 5%;
+}
+th{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 90%;
+    border-bottom: 2px solid #111111;
+    border-top: 1px solid #999;
+    text-align: left;
+}

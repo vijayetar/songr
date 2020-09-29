@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/tables.css">
+    <title>Document</title>
+</head>
+<body>
+<h1> This is the albums page!!!</h1>
+<table>
+<!--    //An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s ar-->
+    <tr>
+        <th> Title</th>
+        <th> Artist</th>
+        <th> SongCount</th>
+        <th> Length</th>
+        <th> ImageURL</th>
+    </tr>
+    <tr th:each="album:${allAlbums}">
+        <td th:text="${album.title}"></td>
+        <td th:text="${album.artist}"></td>
+        <td th:text="${album.songCount}"></td>
+        <td th:text="${album.length}"></td>
+        <td th:text="${album.imageUrl}"></td>
+    </tr>
+
+</table>
+</body>
+</html>
