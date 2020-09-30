@@ -15,16 +15,18 @@ public class AlbumTest {
         assertEquals(0, album.getLength());
         assertEquals(0, album.getSongCount());
         assertNull("Image", album.getImageUrl());
+        assertNull("no color", album.getColor());
     }
     // test all getters
     @Test
     public void testAlbumAllGettersWithInput(){
-        Album album = new Album("Title","Artist",1,10,"Image");
+        Album album = new Album("Title","Artist",1,10,"Image","brown");
         assertEquals("Title", album.getTitle());
         assertEquals("Artist", album.getArtist());
         assertEquals(1, album.getSongCount());
         assertEquals(10, album.getLength());
         assertEquals("Image", album.getImageUrl());
+        assertEquals("brown", album.getColor());
     }
     // test the setters
     @Test
@@ -40,7 +42,8 @@ public class AlbumTest {
         assertEquals(12, album.getSongCount());
         album.setLength(120);
         assertEquals(120, album.getLength());
-
+        album.setColor("pink");
+        assertEquals("pink", album.getColor());
     }
 }
 
