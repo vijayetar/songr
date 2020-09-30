@@ -34,7 +34,7 @@
         <th> ImageURL</th>
         <th> Color </th>
     </tr>
-    <tr th:each="album:${allAlbums}">
+    <tr th:each="album:${albums}">
         <td th:text="${album.title}"></td>
         <td th:text="${album.artist}"></td>
         <td th:text="${album.songCount}"></td>
