@@ -41,6 +41,8 @@
         <td th:text="${album.length}"></td>
         <td th:text="${album.imageUrl}"></td>
         <td th:text="${album.color}"></td>
+        <td th:if="${album.allSongs.size()>0}"
+        <td th:each="song:${album.allSongs}"></td>
     </tr>
 
 </table>
