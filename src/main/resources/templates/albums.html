@@ -20,7 +20,9 @@
     Length in seconds <input type="number" name="length">
     ImageUrl <input type="text" name="imageUrl">
     Favorite Color <input type="text" name="color">
-
+    Song Title <input type="text" name="songTitle">
+    Song Length <input type="number" name="songLength">
+    Track Number <input type="number" name="trackNumber">
     <input type="submit">
 </form>
 
@@ -41,8 +43,14 @@
         <td th:text="${album.length}"></td>
         <td th:text="${album.imageUrl}"></td>
         <td th:text="${album.color}"></td>
-        <td th:if="${album.allSongs.size()>0}"
-        <td th:each="song:${album.allSongs}"></td>
+<!--        <td th:if="${album.allSongs.size()>0}" th:each="song:${album.allSongs}" th:text="song.songTitle"></td>-->
+<!--        <td>-->
+<!--            <form action="/song" method="POST">-->
+<!--                <input type="hidden" name="songId" th:value="${song.id}">-->
+<!--                Song: <input type="text" name="action">-->
+<!--                <input type="submit" value="add">-->
+<!--            </form>-->
+<!--        </td>-->
     </tr>
 
 </table>
