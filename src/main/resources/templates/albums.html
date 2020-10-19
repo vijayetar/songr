@@ -10,6 +10,16 @@
     <title>Document</title>
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/"> Home </a></li>
+            <li><a href="/albums">Albums</a></li>
+        </ul>
+    </nav>
+</header>
+
+
 <h1> Add Albums page!!!</h1>
 
 <form action="/album" method="POST">
@@ -27,8 +37,8 @@
 </form>
 
 <section th:each="album:${albums}">
-    <h2 th:text="${album.title}"> Title
-    </h2>
+    <a th:href="'/album/' + ${album.getId()}"><h2 th:text="${album.title}"> Title
+    </h2></a>
     <h3 th:text="'Artist: '+${album.artist}"> Artist
     </h3>
     <p th:text="'Song Count '+${album.songCount}"> Song Count:
@@ -51,6 +61,10 @@
         Track Number <input type="number" name="trackNumber">
         <input type="hidden" name="albumId" th:value="${album.getId()}">
         <input type="submit" value="Add More Songs">
+    </form>
+    <form action="/delete/album" method="post">
+        <input type="hidden" name="albumId" th:value="${album.getId()}">
+        <input type="submit" value="Delete Album">
     </form>
 </section>
 

@@ -25,5 +25,20 @@ public class SongController {
         albumRepository.save(currentAlbum);
         return new RedirectView("/albums");
     }
+    @PostMapping("/update/song")
+    public RedirectView updateSong(Long songId, String title, int length, int trackNumber){
+        Song thisSong = songRepository.getOne(songId);
+        thisSong.setSongTitle(title);
+        thisSong.setSongLength(length);
+        thisSong.setTrackNumber(trackNumber);
+        songRepository.save(thisSong);
+        return new RedirectView("/album/"+ thisSong.getAlbum().getId());
+    }
+    @PostMapping("/delete/song")
+    public RedirectView deleteSong(Long songId, Long albumId){
+        Song thisSong = songRepository.getOne(songId);
+        songRepository.deleteById(songId);
+        return new RedirectView("/album/"+ thisSong.getAlbum().getId());
+    }
 
 }

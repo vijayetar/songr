@@ -45,4 +45,16 @@ public class Song {
     public int getTrackNumber() {
         return trackNumber;
     }
+
+    public void setSongTitle(String songTitle) {
+        this.songTitle = songTitle;
+    }
+
+    public void setSongLength(int songLength) {
+        this.songLength = songLength;
+    }
+
+    public void setTrackNumber(int trackNumber) {
+        this.trackNumber = trackNumber;
+    }
 }

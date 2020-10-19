@@ -28,13 +28,24 @@
     </p>
     <ul th:if="${albumInDetail.getAllSongs()}" th:each="song:${albumInDetail.allSongs}">
         <li th:text="'Song Title '+ ${song.getSongTitle()}"></li>
+        <li th:text="'Song Length Number ' + ${song.getSongLength()}"></li>
         <li th:text="'Song Track Number ' + ${song.getTrackNumber()}"></li>
+
+    <form action="/update/song" method="post">
+        <input type="hidden" name="songId" th:value="${song.getId()}">
+        title: <input type="text" name="title" th:value="${song.getSongTitle()}">
+        length: <input type="number" name="length" th:value="${song.getSongLength()}">
+        tract number: <input type="number" name="trackNumber" th:value="${song.getTrackNumber()}">
+        <input type="submit" value="Update Song">
+    </form>
+    <form action="/delete/song" method="post">
+        <input type="hidden" name="songId" th:value="${song.getId()}">
+        <input type="hidden" name="albumId" th:value="${albumInDetail.getId()}">
+        <input type="submit" value="Delete Song">
+    </form>
     </ul>
-<!--    <form action="/moresongs" method="POST">-->
-<!--        Song Title <input type="text" name="songTitle">-->
-<!--        Song Length <input type="number" name="songLength">-->
-<!--        Track Number <input type="number" name="trackNumber">-->
-<!--        <input type="hidden" name="albumId" th:value="${album.getId()}">-->
-<!--        <input type="submit" value="Add More Songs">-->
-<!--    </form>-->
+    <form action="/delete/album" method="post">
+        <input type="hidden" name="albumId" th:value="${albumInDetail.getId()}">
+        <input type="submit" value="Delete Album">
+    </form>
 </section>
