@@ -1,8 +1,7 @@
 package com.vijayetar.songr;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id; // we choose this IF we are guessing based on the class' import
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Album {
@@ -16,6 +15,9 @@ public class Album {
     private int length;
     private String imageUrl;
     private String color;
+
+    @OneToMany(mappedBy = "album", cascade = CascadeType.ALL)
+    public List<Song> allSongs = new ArrayList<Song>();
 
     public Album(String title, String artist, int songCount, int length, String imageUrl, String color) {
         this.title = title;

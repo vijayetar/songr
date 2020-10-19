@@ -14,19 +14,22 @@ import java.util.ArrayList;
 public class AlbumController {
     @Autowired
     public AlbumRepository albumRepository;
+    @Autowired
+    public SongRepository songRepository;
+
 
     @PostMapping("/album") // app.post('/emotion')
-    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageUrl, String color){
+    public RedirectView addAlbum(String title, String artist, int songCount, int length, String imageUrl, String color, String songTitle, int songLength, int trackNumber){
         Album newAlbum = new Album ( title, artist, songCount, length, imageUrl, color);
-        Album testAlbum = new Album ("test","test",1,1,"test","test");
+        Song newSong = new Song(songTitle, songLength, trackNumber, newAlbum);
+        newAlbum.allSongs.add(newSong);
         albumRepository.save(newAlbum);
+        songRepository.save(newSong);
         return new RedirectView("/albums");
     }
     @GetMapping("/albums")
     public String showAlbums(Model m){
-
         ArrayList<Album> albums = (ArrayList<Album>)albumRepository.findAll();
-
         m.addAttribute("albums", albums);
         return "albums";
     }
