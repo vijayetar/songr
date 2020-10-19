@@ -11,5 +11,20 @@
 ## How to run the app
 1. clone the repository to your terminal  
 2. open the folder using IntelliJ  
-3. open the SongrApplication in the src/main/java/com.vijayetar.songr and run the application
-4. open the application in "localhost:8080"  
+3. update the applications.properties folder with the following:
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/songr
+spring.datasource.username=<TYPE USERNAME>
+spring.datasource.password=<TYPE PASSWORD>
+#spring.jpa.hibernate.ddl-auto=create
+spring.jpa.hibernate.ddl-auto=update
+```
+4. open the SongrApplication in the src/main/java/com.vijayetar.songr and run the application
+5. open the application in "localhost:8080"  
+6. Or run from command line
+```
+./gradlew bootRun
+```
+
+## References
+1. [status exception](https://www.baeldung.com/spring-response-status-exception)

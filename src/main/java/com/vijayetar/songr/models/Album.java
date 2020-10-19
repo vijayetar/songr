@@ -1,4 +1,5 @@
-package com.vijayetar.songr;
+package com.vijayetar.songr.models;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,14 @@ public class Album {
         this.color = color;
     }
     public Album(){
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public List<Song> getAllSongs() {
+        return allSongs;
     }
 
     public String getColor() {
