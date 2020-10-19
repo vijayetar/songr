@@ -10,10 +10,20 @@
     <title>Document</title>
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/"> Home </a></li>
+            <li><a href="/albums">Albums</a></li>
+        </ul>
+    </nav>
+</header>
+
+
 <h1> Add Albums page!!!</h1>
 
 <form action="/album" method="POST">
-
+<Legend><h2>Add New Albums Here: </h2></Legend>
     Title <input type="text" name="title">
     Artist <input type="text" name="artist">
     Number of songs in the albums <input type="number" name="songCount">
@@ -26,33 +36,37 @@
     <input type="submit">
 </form>
 
-<table>
-<!--    //An Album has a title, an artist, a songCount, a length (in seconds), and an imageUrl that is a link to that album’s ar-->
-    <tr>
-        <th> Title</th>
-        <th> Artist</th>
-        <th> SongCount</th>
-        <th> Length</th>
-        <th> ImageURL</th>
-        <th> Color </th>
-    </tr>
-    <tr th:each="album:${albums}">
-        <td th:text="${album.title}"></td>
-        <td th:text="${album.artist}"></td>
-        <td th:text="${album.songCount}"></td>
-        <td th:text="${album.length}"></td>
-        <td th:text="${album.imageUrl}"></td>
-        <td th:text="${album.color}"></td>
-<!--        <td th:if="${album.allSongs.size()>0}" th:each="song:${album.allSongs}" th:text="song.songTitle"></td>-->
-<!--        <td>-->
-<!--            <form action="/song" method="POST">-->
-<!--                <input type="hidden" name="songId" th:value="${song.id}">-->
-<!--                Song: <input type="text" name="action">-->
-<!--                <input type="submit" value="add">-->
-<!--            </form>-->
-<!--        </td>-->
-    </tr>
+<section th:each="album:${albums}">
+    <a th:href="'/album/' + ${album.getId()}"><h2 th:text="${album.title}"> Title
+    </h2></a>
+    <h3 th:text="'Artist: '+${album.artist}"> Artist
+    </h3>
+    <p th:text="'Song Count '+${album.songCount}"> Song Count:
 
-</table>
+    </p>
+    <p th:text="'Album Length '+${album.length}">
+        Length:
+    </p>
+    <img src=th:text="${album.imageUrl}" alt="Albums">
+    <p th:text="${album.color}">
+        Color
+    </p>
+    <ul th:if="${album.getAllSongs()}" th:each="song:${album.allSongs}">
+        <li th:text="'Song Title '+ ${song.getSongTitle()}"></li>
+        <li th:text="'Song Track Number ' + ${song.getTrackNumber()}"></li>
+    </ul>
+    <form action="/moresongs" method="POST">
+        Song Title <input type="text" name="songTitle">
+        Song Length <input type="number" name="songLength">
+        Track Number <input type="number" name="trackNumber">
+        <input type="hidden" name="albumId" th:value="${album.getId()}">
+        <input type="submit" value="Add More Songs">
+    </form>
+    <form action="/delete/album" method="post">
+        <input type="hidden" name="albumId" th:value="${album.getId()}">
+        <input type="submit" value="Delete Album">
+    </form>
+</section>
+
 </body>
 </html>
